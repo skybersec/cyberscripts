@@ -1,10 +1,9 @@
 ﻿New-Item -ItemType Directory -Force -Path C:\outputfolder
 Set-Location -Path C:\outputfolder
-$currentDir = Get-Location
-curl http://ctldl.windowsupdate.com/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab -o C:\outputfolder\disallowedcertstl.cab
+Invoke-WebRequest http://ctldl.windowsupdate.com/msdownload/update/v3/static/trustedr/en/disallowedcertstl.cab -o C:\outputfolder\disallowedcertstl.cab
 if(C:\Windows\System32\expand.exe)     {
     try { cmd.exe /c "C:\Windows\System32\expand.exe disallowedcertstl.cab disallowedcert.stl"}
-   catch { Write-host "Nope, don't have that, soz."}
+   catch { Write-host "404 file not found try again..."}
 }
 certutil -addstore -f  disallowed disallowedcert.stl
 #Below I was going to add the ability to check if auto checks are disabled/enabled etc
