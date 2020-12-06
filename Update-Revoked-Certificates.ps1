@@ -6,5 +6,5 @@ if(C:\Windows\System32\expand.exe)     {
    catch { Write-host "404 file not found try again..."}
 }
 certutil -addstore -f  disallowed disallowedcert.stl
-#Below I was going to add the ability to check if auto checks are disabled/enabled etc
+#Below I was going to add the ability to check if auto checks are disabled/enabled etc.
 #Get-Item -path HKLM:\\Software\Policies\Microsoft\SystemCertificates\AuthRoot\
